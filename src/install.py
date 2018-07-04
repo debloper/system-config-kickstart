@@ -251,10 +251,11 @@ class install:
                 self.nfsdir_entry.set_text(self.ks.method.dir)
 
         elif self.ks.method.method == "url":
-            tokens = string.split(self.ks.method.url, "://")
+            if self.ks.method.url is not None:
+                tokens = string.split(self.ks.method.url, "://")
 
-            protocol = tokens[0]
-            data = tokens[1]
+                protocol = tokens[0]
+                data = tokens[1]
 
             if protocol == "ftp":
                 self.ftp_radiobutton.set_active(True)
